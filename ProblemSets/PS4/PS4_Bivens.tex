@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS4}
+\author{Christin Bivens}
+\date{2-13-2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Scraping Interests}
+    I am interesting in scraping data from online auction resell apps (eBay, Poshmark, Mercari, etc.). This is purely self serving as I want to gather and analyze data on price determinants in a resale market for my personal side hustle.
+    
+\section{Code Answers}
+\begin{enumerate}
+\item class(df1) = data.frame
+      class(df) = SparkDataFrame
+\item When running head command on df1, the response is:
+Error in (function (classes, fdef, mtable)  : 
+  unable to find an inherited method for function ‘select’ for signature ‘"data.frame", "NULL"’
+  This is probably due to the command being specific to an R data frame and not a SparkR data frame
+\item When running the filter command for df1:
+Error in (function (classes, fdef, mtable)  : 
+  unable to find an inherited method for function ‘filter’ for signature ‘"data.frame", "logical"’
+  Again, this is because R commands are very specific to the structure of the object in question. df1 is not a data.frame => these commands do not know how to run with how it is structured.
+\end{enumerate}
+
+
+
+\end{document}
