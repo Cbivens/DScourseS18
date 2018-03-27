@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS 8}
+\author{Christin Bivens}
+\date{March 2018}
+
+\begin{document}
+\maketitle
+
+True beta:
+1.5, -1, -.25, .75, 3.5, -2, .5, 1, 1.25, 2
+
+\section{Part 5}
+
+	
+0.77480798
+
+0.49631902
+
+0.51529149
+
+0.60010953
+
+0.70913307
+
+0.96689101
+
+0.31334104
+
+0.03613044
+
+0.62443712
+
+0.85853552
+
+
+These numbers are within the range of true beta, but are very centered within 0 to 1, and therefore are not a good reflection.
+
+
+\section{Part 6}
+
+# [1] "The minimum of f(beta,Y,X) is 0.774807975493321" 
+
+# [2] "The minimum of f(beta,Y,X) is 0.496318913121644" 
+
+# [3] "The minimum of f(beta,Y,X) is 0.515291455510075" 
+
+# [4] "The minimum of f(beta,Y,X) is 0.600109530781268" 
+
+# [5] "The minimum of f(beta,Y,X) is 0.709133235430076" 
+
+# [6] "The minimum of f(beta,Y,X) is 0.966890850499107" 
+
+# [7] "The minimum of f(beta,Y,X) is 0.313341072858513" 
+
+# [8] "The minimum of f(beta,Y,X) is 0.0361304989593428"
+
+# [9] "The minimum of f(beta,Y,X) is 0.624437148940285" 
+
+# [10] "The minimum of f(beta,Y,X) is 0.858535580804735"
+
+Here, the returns are identical to part 5, and therefore also are not a good reflection of beta.
+
+\section{Part 7}
+
+Optimal value of objective function:  -6.54296875 
+
+Optimal value of controls: 2.25
+
+Here with the optimization, I had trouble with my code a little bit for the BLFGS.
+
+\section{Part 8}
+
+0.03613, 0.62444, 0.85854
+
+
+\section{Part 9}
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 27, 2018 - 12:15:23
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Y \\ 
+\hline \\[-1.8ex] 
+ X1 & 0.775$^{***}$ \\ 
+  & (0.002) \\ 
+  & \\ 
+ X2 & 0.496$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X3 & 0.515$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X4 & 0.600$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X5 & 0.709$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X6 & 0.967$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X7 & 0.313$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X8 & 0.036$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X9 & 0.624$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ X10 & 0.859$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 100,000 \\ 
+R$^{2}$ & 0.856 \\ 
+Adjusted R$^{2}$ & 0.856 \\ 
+Residual Std. Error & 0.500 (df = 99990) \\ 
+F Statistic & 59,605.040$^{***}$ (df = 10; 99990) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
+
+These numbers are in line with parts 5 and 6. They do not reflect are true beta vector, but they do land within the vector (very close to the mean). This gives me the notion that OLS for a simple linear regression plays it safe and keeps answers within one deviation of the mean.
+\end{document}
