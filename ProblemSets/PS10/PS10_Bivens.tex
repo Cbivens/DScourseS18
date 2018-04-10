@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{PS10}
+\author{Christin Bivens }
+\date{April 10th, 2018}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\begin{tabular}{ c|c|c|c }
+ Model & OOS F1 & OOS Gmean & Model Specific Parameters\\
+ \hline
+ Tree & .8892894 & .6314273 & minsplit = .25, minbucket = 38, cp = .0562 \\ 
+ \hline
+ Logit & .8633508 & .000000 & lambda = .887, alpha = .544 \\  
+ \hline
+ Neural Network & 0.9051716 & 0.7597503 & size=6, decay=0.427, maxit = 1000\\
+ \hline
+ kNN & 0.9175022 & 0.7955342 & k=30 \\
+ \hline
+ SVM & & & kernel = .25, cost = 1024, gamma = 2\\
+ \hline
+ Naive Byaes & .88228196 & .7342159 & na\\
+\end{tabular}
+\end{center}
+
+*** I've tried running the svm about twenty times and 5 different ways and I get the error that any of the numbers from the specified vector are not feasible. So I submitted my final code without the kernel param specified. That way it will at least run the hyper parameters command... but it freezes every time before the iterations.
+
+F1 score = harmonic mean of precision and recall => 2/(1/recall+1/precision)
+
+It is the trade off between type one and type two errors basically. 
+
+Given that 1 is the optimal value for the f1 score, it seems that the kNN model performed the best by this measure, while the logit model did the worst.
+
+Gmean is the geometric mean of precision and recall. 
+Here the logit model always gives a zero, and the kNN model once again preformed the best. In general, the gmean scores were lower than the f1 scores for all the models
+
+
+
+\end{document}
