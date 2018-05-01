@@ -1,0 +1,195 @@
+\documentclass{beamer}
+ 
+\usepackage[utf8]{inputenc}
+\usecolortheme{beetle}
+ 
+ 
+%Information to be included in the title page:
+\title{Market Share and Pricing Determination in the Ready-to-Eat Cereal Industry}
+\author{Christin Bivens}
+\date{May 1st, 2018}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{itemize}
+ \item Grocery is generally characterized as retail/imperfectly competitive by Economists
+ \item Cereal has one of the highest price-cost margins in the grocery store
+ \item This calls into question the use of price collusion which would indicate an Oligopoly structure
+ \item This research aims to create a regression model to give insights to determining market power in the cereal industry
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Data}
+
+\begin{itemize}
+ \item Data was given by Dr. M.J. Kim from a previous research collaboration. 
+ \item The data frame covers over 45,000 records products with 134 variables, and 18 parent companies
+ \item It spans a 95 week time period between 2001 and 2003
+ \item The final model will be aggregated over the 95 week period using products from the 4 largest parent brands
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+
+\begin{itemize}
+  \item All empirical exercises were done in R
+  \item Equations are aggregated by product description (i) per week (t) 
+  \item Variables contributing to market share were determined through:
+    \begin{itemize}
+    \item Visualizations like ggplot and summary statistics
+    \item Findings from the literature review
+    \item Correlation testing
+    \item Simple linear regressions between pairings of variables
+    \end{itemize}
+ \item First, a regression model was run to determine a price estimate
+ \begin{itemize}
+    \item Variables used: product characteristics and cost inputs
+    \end{itemize}
+\item Second, a regression was run to determine market share 
+ \begin{itemize}
+    \item Variables used: predicted price from the first regression and product characteristics
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+Pricing Estimation Model
+\begin{displaymath} 
+
+\widehat{P_i_t}= \beta_1X_c_a_l_o_r_i_e_s + \beta_2X_c_a_r_b_s + \beta_3X_p_r_o_t_e_i_n +
+\beta_4X_s_i_z_e + \beta_5X_s_u_g_a_r + \alpha_1C_c_o_r_n + \alpha_2C_g_a_s + \alpha_3C_w_h_e_a_t + \alpha_4C_s_u_g_a_r + \alpha_5C_e_l_e_c_t_r_i_c_i_t_y + \alpha_6C_l_a_b_o_r
+
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+
+Market Share Equation
+\begin{displaymath}
+
+MS_i_t=log(Unit Sales_i_t/Population_t) - log((Population_t - Unit Sales_i_t)/Population_t)
+
+\end{displaymath}
+
+Market Share Prediction Model
+
+\begin{displaymath}
+
+MS_i_t=\beta_1X_c_a_l_o_r_i_e_s + \beta_2X_c_a_r_b_s + \beta_3X_p_r_o_t_e_i_n +
+\beta_4X_s_i_z_e + \beta_5X_s_u_g_a_r + \alpha_1\widehat{P_i_t}
+
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Findings}
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.eduRUE, ci.level=0.90, single.row=TRUE)
+% Date and time: Tue, May 01, 2018 - 11:40:31 AM
+\begin{table}[!htbp]\tiny \centering
+\caption{Pricing Regression Results}
+  \label{} 
+\begin{tabular}{@{\extracolsep{1pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Pricing \\ 
+\hline \\[-1.8ex] 
+ Calories & 0.0005$^{***}$ (0.0002, 0.001) \\ 
+  Carbs & 0.007$^{***}$ (0.006, 0.009) \\ 
+  Protein & $-$0.014$^{***}$ ($-$0.019, $-$0.009) \\ 
+  Box Size & 0.063$^{***}$ (0.061, 0.064) \\ 
+  Sugar Content & $-$0.005$^{***}$ ($-$0.007, $-$0.003) \\ 
+  Corn (Input) & 0.108 ($-$0.065, 0.280) \\ 
+  Gas (Input) & $-$0.160$^{**}$ ($-$0.280, $-$0.041) \\ 
+  Wheat (Input) & $-$0.030 ($-$0.075, 0.016) \\ 
+  Sugar (Input) & $-$0.034$^{***}$ ($-$0.044, $-$0.023) \\ 
+  Electrictiy (Input) & $-$0.058 ($-$0.150, 0.035) \\ 
+  Labor & 0.360$^{***}$ (0.219, 0.502) \\ 
+  Constant & $-$3.459$^{**}$ ($-$5.677, $-$1.240) \\ 
+ \hline \\[-1.8ex] 
+Observations & 37,047 \\ 
+R$^{2}$ & 0.142 \\ 
+Adjusted R$^{2}$ & 0.142 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}
+\end{table} 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Findings}
+    
+% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, May 01, 2018 - 12:08:40 PM
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp]\tiny \centering 
+  \caption{Market Share Regression Results} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & \multicolumn{1}{c}{Yit} \\ 
+\hline \\[-1.8ex] 
+ Calories & -0.001^{***} \\ 
+  & (0.0004) \\ 
+  Carbs & 0.031^{***} \\ 
+  & (0.002) \\ 
+  Protein & -0.071^{***} \\ 
+  & (0.007) \\ 
+  Box Size & 0.103^{***} \\ 
+  & (0.008) \\ 
+  Sugar & 0.051^{***} \\ 
+  & (0.003) \\ 
+  Price & -2.684^{***} \\ 
+  & (0.124) \\ 
+  Constant & -1.940^{***} \\ 
+  & (0.182) \\ 
+ \hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{37,047} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.064} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.064} \\ 
+Residual Std. Error & \multicolumn{1}{c}{2.533 (df = 37040)} \\ 
+F Statistic & \multicolumn{1}{c}{420.199$^{***}$ (df = 6; 37040)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusion}
+
+\begin{itemize}
+ \item As expected, price and market share have an inverse relationship
+ \item Price and market share have different relationships with some product characteristics 
+ \item While few inputs for price estimation are not significant, all regression results for Market Share are statistically significant
+ \item The model generated for market share from this research can be used to predict market share for a new product entering the market
+ \item Can also be used to explore how the cereal industry has moved from imperfect competition to an oligopoly structure
+
+\end{itemize}
+
+\end{frame}
+
+\end{document}
